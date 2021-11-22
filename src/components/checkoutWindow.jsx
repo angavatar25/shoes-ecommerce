@@ -2,7 +2,7 @@ import React from 'react'
 import firstImage from '../assets/images/image-product-1-thumbnail.jpg'
 import deleteIcon from '../assets/images/icon-delete.svg'
 
-export default function CheckoutWindow({ active, amount }) {
+export default function checkoutWindow({ active, amount }) {
     const deleteItem = (index) => {
         const tasks = [amount]
             tasks.splice(index, 1)

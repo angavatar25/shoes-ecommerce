@@ -1,6 +1,6 @@
 import { useState } from 'react/cjs/react.development'
 import './App.css'
-import CheckoutWindow from './components/CheckoutWindow'
+import CheckoutWindow from './components/checkoutWindow'
 import mainLogo from './assets/images/logo.svg'
 import cartLogo from './assets/images/icon-cart.svg'
 import profile from './assets/images/image-avatar.png'
