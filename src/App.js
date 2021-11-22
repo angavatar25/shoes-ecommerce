@@ -1,4 +1,3 @@
-import { useState } from 'react/cjs/react.development'
 import './App.css'
 import CheckoutWindow from './components/checkoutWindow'
 import mainLogo from './assets/images/logo.svg'
@@ -19,7 +18,7 @@ import prevIcon from './assets/images/icon-previous.svg'
 import CheckoutWindowMobile from './components/checkoutWindowMobile'
 import MobileMenu from './components/mobileMenu'
 import { v4 as uuidV4 } from 'uuid';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   
