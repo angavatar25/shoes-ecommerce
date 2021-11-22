@@ -2,11 +2,9 @@ import React from 'react'
 import firstImage from '../assets/images/image-product-1-thumbnail.jpg'
 import deleteIcon from '../assets/images/icon-delete.svg'
 
-export default function CheckoutWindow({ active, amount }) {
-    const deleteItem = (index) => {
-        const tasks = [amount]
-            tasks.splice(index, 1)
-            return tasks
+export default function checkoutWindowMobile({ active, amount }) {
+    const deleteItem = (item) => {
+        amount.splice(amount.indexOf(item.id), 1);
     }
     const renderCheckoutButton = () => {
         if (amount.length > 0) {
@@ -23,9 +21,10 @@ export default function CheckoutWindow({ active, amount }) {
             )
         }
     }
-    const renderCheckoutList = () => {
-        if(amount.length > 0) {
-            amount && amount.map((index) => {
+    const renderCheckoutItems = () => {
+        if (amount.length > 0) {
+            return (
+                amount.map((index) => {
                     return (
                         <div className="flex justify-between gap-4 mt-3" key={index.id}>
                             <div className="flex">
@@ -37,25 +36,26 @@ export default function CheckoutWindow({ active, amount }) {
                                     <p className="text-gray-400">$125.00 x {index.amount} <span className=" text-black font-semibold">${index.total}</span></p>
                                 </div>
                             </div>
-                            <button className="my-auto" onClick={() => deleteItem(index.id)}>
+                            <button className="my-auto" onClick={() => deleteItem(index)}>
                                 <img src={deleteIcon} alt="" />
                             </button>
                         </div>
                     )
                 })
+            )
         } else {
             return (
-                <p>Checkout cart is empty</p>
+                <p>Cart is empty</p>
             )
         }
     }
     return (
-        <div className={`absolute text-left top-32 right-0 bg-white shadow-lg rounded-lg w-96 ${active ? 'block' : 'hidden'}`}>
+        <div style={{zIndex: '100'}} className={`fixed md:absolute block md:hidden text-left top-36 right-0 left-0 mx-auto md:top-32 md:right-0 bg-white shadow-lg rounded-lg w-96 ${active ? 'block' : 'hidden'}`}>
             <div className="p-4 border-b border-gray-400">
                 <p className=" font-semibold">Cart</p>
             </div>
             <div className="p-4">
-                {renderCheckoutList()}
+                {renderCheckoutItems()}
                 {renderCheckoutButton()}
             </div>
         </div>
